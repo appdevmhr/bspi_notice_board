@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/computer_department">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.about_us"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_about_us" />
+
+    <fragment
+        android:id="@+id/principal"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.administation.principal"
+        android:label="@string/principal"
+        tools:layout="@layout/fragment_principal" />
+
+    <fragment
+        android:id="@+id/vice_principal"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.administation.vice_principal"
+        android:label="@string/vice_principal"
+        tools:layout="@layout/fragment_vice_principal" />
+
+    <fragment
+        android:id="@+id/academic_council"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.administation.academic_council"
+        android:label="@string/academic_council"
+        tools:layout="@layout/fragment_academic_council" />
+
+    <fragment
+        android:id="@+id/administrative_council"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.administation.administrative_council"
+        android:label="@string/administrative_council"
+        tools:layout="@layout/fragment_administrative_council" />
+
+    <fragment
+        android:id="@+id/exam_control_section"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.administation.exam_control_section"
+        android:label="@string/exam_control_section"
+        tools:layout="@layout/fragment_exam_control_section" />
+
+    <fragment
+        android:id="@+id/offical_staff"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.administation.offical_staff"
+        android:label="@string/official_staff_list"
+        tools:layout="@layout/fragment_offical_staff" />
+
+
+    <fragment
+        android:id="@+id/bspi_student_penel"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.academic.bspi_student_penel"
+        android:label="@string/bspi_student_panel"
+        tools:layout="@layout/fragment_bspi_student_penel" />
+
+    <fragment
+        android:id="@+id/online_campus"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.academic.online_campus"
+        android:label="@string/online_campus"
+        tools:layout="@layout/fragment_online_campus" />
+
+    <fragment
+        android:id="@+id/library"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.academic.library"
+        android:label="@string/library"
+        tools:layout="@layout/fragment_library" />
+
+    <fragment
+        android:id="@+id/admission_info"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.academic.admission_info"
+        android:label="@string/admission_info"
+        tools:layout="@layout/fragment_admission_info" />
+
+    <fragment
+        android:id="@+id/job_placement_cell"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.academic.job_placement_cell"
+        android:label="@string/job_placement_cell"
+        tools:layout="@layout/fragment_job_placement_cell" />
+
+    <fragment
+        android:id="@+id/probidhan"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.academic.probidhan"
+        android:label="@string/probidhan"
+        tools:layout="@layout/fragment_probidhan" />
+
+    <fragment
+        android:id="@+id/industrial_linkages"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.academic.industrial_linkages"
+        android:label="@string/industrial_linkages"
+        tools:layout="@layout/fragment_industrial_linkages" />
+
+    <fragment
+        android:id="@+id/academic_calender"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.academic.academic_calender"
+        android:label="@string/academic_calender"
+        tools:layout="@layout/fragment_academic_calender" />
+
+    <fragment
+        android:id="@+id/scholarship"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.academic.scholarship"
+        android:label="@string/scholarship"
+        tools:layout="@layout/fragment_scholarship" />
+
+    <fragment
+        android:id="@+id/short_course"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.academic.short_course"
+        android:label="@string/short_course"
+        tools:layout="@layout/fragment_short_course" />
+
+    <fragment
+        android:id="@+id/computer_department"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.department.computer_department"
+        android:label="@string/computer_department"
+        tools:layout="@layout/fragment_computer_department" />
+
+    <fragment
+        android:id="@+id/automobile_department"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.department.automobile_department"
+        android:label="@string/automobile_department"
+        tools:layout="@layout/fragment_automobile_department" />
+
+    <fragment
+        android:id="@+id/civilwood_department"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.department.civilwood_department"
+        android:label="@string/civil_wood_department"
+        tools:layout="@layout/fragment_civilwood_department" />
+
+    <fragment
+        android:id="@+id/construction_department"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.department.construction_department"
+        android:label="@string/construction_department"
+        tools:layout="@layout/fragment_construction_department" />
+
+    <fragment
+        android:id="@+id/electrical_department"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.department.electrical_department"
+        android:label="@string/electrical_department"
+        tools:layout="@layout/fragment_electrical_department" />
+
+    <fragment
+        android:id="@+id/mechanical_department"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.department.mechanical_department"
+        android:label="@string/mechanical_department"
+        tools:layout="@layout/fragment_mechanical_department" />
+
+    <fragment
+        android:id="@+id/non_tech_department"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.department.non_tech_department"
+        android:label="@string/non_tech_department"
+        tools:layout="@layout/fragment_non_tech_department" />
+
+    <fragment
+        android:id="@+id/general_notice"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.notice.general_notice"
+        android:label="@string/general_notice"
+        tools:layout="@layout/fragment_general_notice" />
+
+    <fragment
+        android:id="@+id/student_notice"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.notice.student_notice"
+        android:label="@string/student_notice"
+        tools:layout="@layout/fragment_student_notice" />
+
+    <fragment
+        android:id="@+id/tender_notice"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.notice.tender_notice"
+        android:label="@string/tender_notice"
+        tools:layout="@layout/fragment_tender_notice" />
+
+
+    <fragment
+        android:id="@+id/principal_message"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.about_bspi.principal_message"
+        android:label="@string/message_from_principal"
+        tools:layout="@layout/fragment_principal_message" />
+
+    <fragment
+        android:id="@+id/vice_principal_message"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.about_bspi.vice_principal_message"
+        android:label="@string/message_from_vice_principal"
+        tools:layout="@layout/fragment_vice_principal_message" />
+
+    <fragment
+        android:id="@+id/history_background"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.about_bspi.history_background"
+        android:label="@string/history_background"
+        tools:layout="@layout/fragment_history_background" />
+
+    <fragment
+        android:id="@+id/mission_vission"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.about_bspi.mission_vission"
+        android:label="@string/mission_vission"
+        tools:layout="@layout/fragment_mission_vission" />
+
+    <fragment
+        android:id="@+id/citizen_charter"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.about_bspi.citizen_charter"
+        android:label="@string/citizen_charter"
+        tools:layout="@layout/fragment_citizen_charter" />
+
+    <fragment
+        android:id="@+id/hostel"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.about_bspi.hostel"
+        android:label="@string/hostel"
+        tools:layout="@layout/fragment_hostel" />
+
+    <fragment
+        android:id="@+id/organogram"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.about_bspi.organogram"
+        android:label="@string/organogram"
+        tools:layout="@layout/fragment_organogram" />
+
+    <fragment
+        android:id="@+id/bspiofficial"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.about_bspi.bspiofficial"
+        android:label="@string/official_facebook_page"
+        tools:layout="@layout/fragment_bspiofficial" />
+
+    <fragment
+        android:id="@+id/album"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.album"
+        android:label="@string/photo_gallery"
+        tools:layout="@layout/fragment_album" />
+
+    <fragment
+        android:id="@+id/contact"
+        android:name="com.appdevmhr.bangladeshswedenpolytechnic.ui.contact"
+        android:label="@string/contact_us"
+        tools:layout="@layout/fragment_contact" />
+
+
+
+
+
+
+</navigation>

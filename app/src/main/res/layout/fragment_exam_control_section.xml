@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.administation.exam_control_section">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:text="Exam Control Section "
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:padding="10dp"
+            app:srcCompat="@drawable/examcontrol" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="General Information:"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="BSPI is one the Government Institute under ministry of education through Directorate of technical education while the academic program is controlled by the Bangladesh Technical Education Board(BTEB). It offers 4-years (8 Semester) Diploma-in-Engineering courses on six discipline of Automobile, Civil(Wood), Computer, Construction, Electrical, Mechanical. According to the academic calendar of Bangladesh Technical Education Board, Mid-term and final examinations are held every semester under the supervision of principal while all exam activities are controlled by the Examination Control Room. The students shall have to observe the following discipline rules ;"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Discipline in Examination Hall:"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Students are forbidden to write anything else where other than on the answer script provided. \n\nNo loose paper will be supplied for scribbling and no page is to be brought in for this purpose. \n\n Any student found with incriminating document in his possession will be expelled from the examination. No distinction will be made between possession and / or use of incriminating papers and the minimum punishment for adopting such unfair means will be debarring a student from admission in any Technical or Polytechnic Institute under the Directorate of Technical Education, Bangladesh, for the session in which he is expelled and for one more academic session.  \n\nThose who would use violent language or threaten the invigilators inside or outside the examination hall will be expelled from the examination in which they appear and debarred from appearing at two or more subsequent examinations. \n\n For any other offense and / or nonacademic and un-student like activities relating to examination by the students the decision of the Academic council shall be final and legally binding.   "
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+    </LinearLayout>
+</ScrollView>

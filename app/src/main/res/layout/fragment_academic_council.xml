@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.administation.academic_council">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="Academic Council "
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#43A047"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/_1_the_academic_council_shall_consist_of_the_principal_vice_principal_departmental_heads_representative_of_teachers_ideb_amp_staffs_association_hostel_super_registrar_member_secretary_n_2_the_function_of_the_council_shall_be_to_initiate_and_formulate_all_educational_policies_governing_the_operation_of_the_institute_n_3_it_s_function_shall_also_be_to_determine_policies_concerning_n_t_a_standards_qualifications_and_procedure_relating_to_the_admission_of_students_n_t_b_students_conduct_discipline_n_tc_students_academic_standards_and_requirements_n_t_d_institute_s_examinations_and_promotions"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</ScrollView>

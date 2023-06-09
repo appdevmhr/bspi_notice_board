@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2E7D32"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:weightSum="3"
+    tools:context=".ui.academic.probidhan">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_Probidan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_baseline_person_add_24" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewProbidan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+<!--<androidx.cardview.widget.CardView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/probidan22"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:cardBackgroundColor="#2E7D32"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:cardCornerRadius="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:cardElevation="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:cardPreventCornerOverlap="false"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:cardUseCompatPadding="true">&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:orientation="vertical">&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingTop="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="প্রবিধান -২০২২"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAlignment="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAllCaps="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="#F1F1F1"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="24sp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textStyle="bold" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingTop="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="ডিপ্লোমা-ইন-ইঞ্জিনিয়ারিং শিক্ষাক্রম"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAlignment="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAllCaps="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="#F1F1F1"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="20sp" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingTop="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingBottom="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="২০২১-২০২২ শিক্ষাবর্ষ হতে কার্যকর"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAlignment="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAllCaps="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="#F1F1F1"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="20sp" />&ndash;&gt;-->
+<!--&lt;!&ndash;        </LinearLayout>&ndash;&gt;-->
+<!--&lt;!&ndash;    </androidx.cardview.widget.CardView>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <androidx.cardview.widget.CardView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/probidan16"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:cardBackgroundColor="#2E7D32"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:cardCornerRadius="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:cardElevation="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:cardPreventCornerOverlap="false"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:cardUseCompatPadding="true">&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:orientation="vertical">&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingTop="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="প্রবিধান -২০১৬"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAlignment="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAllCaps="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="#F1F1F1"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="24sp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textStyle="bold" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingTop="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="ডিপ্লোমা-ইন-ইঞ্জিনিয়ারিং শিক্ষাক্রম"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAlignment="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAllCaps="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="#F1F1F1"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="20sp" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingTop="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingBottom="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="২০১৬-২০১৭ শিক্ষাবর্ষ হতে কার্যকর"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAlignment="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAllCaps="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="#F1F1F1"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="20sp" />&ndash;&gt;-->
+<!--&lt;!&ndash;        </LinearLayout>&ndash;&gt;-->
+<!--&lt;!&ndash;    </androidx.cardview.widget.CardView>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <androidx.cardview.widget.CardView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/probidan10"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:cardBackgroundColor="#2E7D32"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:cardCornerRadius="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:cardElevation="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:cardPreventCornerOverlap="false"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:cardUseCompatPadding="true">&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:orientation="vertical">&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/textView14"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingTop="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="প্রবিধান -২০১০"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAlignment="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAllCaps="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="#F1F1F1"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="24sp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textStyle="bold" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/textView15"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingTop="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="ডিপ্লোমা-ইন-ইঞ্জিনিয়ারিং শিক্ষাক্রম"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAlignment="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAllCaps="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="#F1F1F1"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="20sp" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/textView16"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingTop="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingBottom="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="২০১০-২০১১ শিক্ষাবর্ষ হতে কার্যকর"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAlignment="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAllCaps="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="#F1F1F1"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="20sp" />&ndash;&gt;-->
+<!--&lt;!&ndash;        </LinearLayout>&ndash;&gt;-->
+<!--&lt;!&ndash;    </androidx.cardview.widget.CardView>-->

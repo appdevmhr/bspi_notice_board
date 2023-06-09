@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/department"
+            app:showAsAction="never"
+            android:title="@string/department">
+            <menu>
+                <item
+                    android:id="@+id/computer_department"
+                    android:title="@string/computer_department" />
+                <item
+                    android:id="@+id/automobile_department"
+                    android:title="@string/automobile_department" />
+                <item
+                    android:id="@+id/civilwood_department"
+                    android:title="@string/civil_wood_department" />
+                <item
+                    android:id="@+id/construction_department"
+                    android:title="@string/construction_department" />
+                <item
+                    android:id="@+id/electrical_department"
+                    android:title="@string/electrical_department" />
+                <item
+                    android:id="@+id/mechanical_department"
+                    android:title="@string/mechanical_department" />
+                <item
+                    android:id="@+id/non_tech_department"
+                    android:title="@string/non_tech_department" />
+            </menu>
+        </item>
+        <item
+            android:id="@+id/administation"
+            app:showAsAction="never"
+            android:title="@string/administration">
+            <menu>
+                <item
+                    android:id="@+id/principal"
+                    android:title="@string/principal" />
+                <item
+                    android:id="@+id/vice_principal"
+                    android:visible="false"
+                    android:title="@string/vice_principal" />
+                <item
+                    android:id="@+id/academic_council"
+                    android:title="@string/academic_council" />
+                <item
+                    android:id="@+id/administrative_council"
+                    android:title="@string/administrative_council" />
+                <item
+                    android:id="@+id/exam_control_section"
+                    android:title="@string/exam_control_section" />
+                <item
+                    android:id="@+id/offical_staff"
+                    android:title="@string/official_staff_list" />
+            </menu>
+        </item>
+        <item
+            android:id="@+id/academic"
+            app:showAsAction="never"
+            android:title="@string/academic">
+            <menu>
+                <item
+                    android:id="@+id/bspi_student_penel"
+                    android:title="@string/bspi_student_panel" />
+                <item
+                    android:id="@+id/online_campus"
+                    android:title="@string/online_campus" />
+                <item
+                    android:id="@+id/library"
+                    android:title="@string/library" />
+                <item
+                    android:id="@+id/admission_info"
+                    android:title="@string/admission_info" />
+                <item
+                    android:id="@+id/job_placement_cell"
+                    android:title="@string/job_placement_cell" />
+                <item
+                    android:id="@+id/probidhan"
+                    android:title="@string/probidhan" />
+
+                <item
+                    android:id="@+id/academic_calender"
+                    android:title="@string/academic_calender" />
+                
+            </menu>
+        </item>
+        <item
+            android:id="@+id/notice"
+            app:showAsAction="never"
+            android:title="@string/notice" >
+            <menu >
+                <item
+                    android:id="@+id/general_notice"
+                    android:title="@string/general_notice" />
+                <item
+                    android:id="@+id/student_notice"
+                    android:title="@string/student_notice" />
+                <item
+                    android:id="@+id/tender_notice"
+                    android:title="@string/tender_notice" />
+            </menu>
+        </item>
+        <item
+            android:id="@+id/about_bspi"
+            android:title="@string/about_bspi"
+            app:showAsAction="never">
+
+            <menu>
+
+                <item
+                    android:id="@+id/principal_message"
+                    android:title="@string/message_from_principal" />
+
+                <item
+                    android:id="@+id/vice_principal_message"
+                    android:title="@string/message_from_vice_principal" />
+                <item
+                    android:id="@+id/history_background"
+                    android:title="@string/history_background" />
+                <item
+                    android:id="@+id/mission_vission"
+                    android:title="@string/mission_vission" />
+                <item
+                    android:id="@+id/citizen_charter"
+                    android:title="@string/citizen_charter" />
+                <item
+                    android:id="@+id/hostel"
+                    android:title="@string/hostel" />
+                <item
+                    android:id="@+id/organogram"
+                    android:title="@string/organogram" />
+                <item
+                    android:id="@+id/bspiofficial"
+                    android:title="@string/official_facebook_page" />
+
+            </menu>
+
+        </item>
+        <item
+            android:id="@+id/album"
+            android:title="@string/photo_gallery" />
+        <item
+            android:id="@+id/contact"
+            android:title="@string/contact_us" />
+
+    </group>
+</menu>
+
+    <!--    <?xml version="1.0" encoding="utf-8"?>-->
+    <!--<menu xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--tools:showIn="navigation_view">-->
+
+    <!--<group android:checkableBehavior="single" android:menuCategory="system">-->
+    <!--    <item-->
+    <!--        android:id="@+id/nav_home"-->
+    <!--        android:icon="@drawable/ic_menu_camera"-->
+    <!--        android:title="@string/menu_home" />-->
+    <!--    <item-->
+    <!--        android:id="@+id/nav_gallery"-->
+    <!--        android:icon="@drawable/ic_menu_gallery"-->
+    <!--        android:title="@string/menu_gallery" />-->
+    <!--    <item-->
+    <!--        android:id="@+id/nav_slideshow"-->
+    <!--        android:icon="@drawable/ic_menu_slideshow"-->
+    <!--        android:title="@string/menu_slideshow" />-->
+    <!--</group>-->
+    <!--</menu>-->

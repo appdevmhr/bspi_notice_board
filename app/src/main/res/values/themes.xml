@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.BangladeshSwedenPolytechnic" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#AD1457</item>
+        <item name="colorPrimaryDark">#AD1457</item>
+        <item name="colorAccent">#004D40</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="Theme.BangladeshSwedenPolytechnic.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.BangladeshSwedenPolytechnic.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.BangladeshSwedenPolytechnic.PopupOverlay"
+        parent="ThemeOverlay.AppCompat.Light" />
+</resources>
