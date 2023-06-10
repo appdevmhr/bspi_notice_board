@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +17,10 @@ import com.appdevmhr.bangladeshswedenpolytechnic.databinding.ActivitySetPeopleBi
 import com.appdevmhr.bangladeshswedenpolytechnic.model.Model_simple_staff_list;
 import com.appdevmhr.bangladeshswedenpolytechnic.simpleMethod;
 import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
@@ -66,31 +71,7 @@ public class setPeople extends AppCompatActivity implements simpleMethod {
                                                 if (!getStringFromInput(binding.setEmail, "email").isEmpty()) {
                                                     if (getIntegerFromInput(binding.setPayority, "Sort Number") != 0) {
 
-
-                                                        if (selectedImage != null) {
-                                                            dialog.show();
-                                                            StorageReference reference = FirebaseStorage.getInstance().getReference().child(collection).child(getStringFromInput(binding.setName, "text"));
-                                                            reference.putFile(selectedImage).addOnSuccessListener(taskSnapshot -> reference.getDownloadUrl().addOnSuccessListener(uri -> {
-                                                                imageUrl = uri.toString();
-                                                                setData(imageUrl);
-                                                            }).addOnFailureListener(e -> {
-                                                                dialog.dismiss();
-                                                                Toast.makeText(setPeople.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                                                            })).addOnFailureListener(e -> {
-                                                                dialog.dismiss();
-                                                                Toast.makeText(setPeople.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                                            });
-                                                        } else {
-                                                            if (!imageUrl.isEmpty()) {
-                                                                setData(imageUrl);
-                                                            } else {
-                                                                Toast.makeText(setPeople.this, "No Image Selected", Toast.LENGTH_SHORT).show();
-                                                                dialog.dismiss();
-                                                            }
-
-                                                        }
-
+                                                        SignUp();
 
                                                     }
 
@@ -132,9 +113,41 @@ public class setPeople extends AppCompatActivity implements simpleMethod {
 
     }
 
+    private void SignUp() {
+        if (selectedImage != null) {
+            dialog.show();
+            FirebaseAuth.getInstance().createUserWithEmailAndPassword(getStringFromInput(binding.setEmail, "email"), getStringFromInput(binding.setPassword, "password")).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                @Override
+                public void onSuccess(AuthResult authResult) {
+                    StorageReference reference = FirebaseStorage.getInstance().getReference().child(collection).child(getStringFromInput(binding.setName, "text"));
+                    reference.putFile(selectedImage).addOnSuccessListener(taskSnapshot -> reference.getDownloadUrl().addOnSuccessListener(uri -> {
+                        imageUrl = uri.toString();
+                        setData(imageUrl);
+                    }).addOnFailureListener(e -> {
+                        dialog.dismiss();
+                        Toast.makeText(setPeople.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    })).addOnFailureListener(e -> {
+                        dialog.dismiss();
+                        Toast.makeText(setPeople.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
+                }
+            });
+        } else {
+            if (!imageUrl.isEmpty()) {
+                setData(imageUrl);
+            } else {
+                Toast.makeText(setPeople.this, "No Image Selected", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+
+        }
+    }
+
     public void setTextFromFireStore(EditText editText, String fieldName, DocumentSnapshot documentSnapshot) {
         editText.setText(documentSnapshot.getString(fieldName));
     }
+
 
     public void setData(String url) {
         Model_simple_staff_list model = new Model_simple_staff_list(getStringFromInput(binding.setName, "text"),
@@ -148,12 +161,29 @@ public class setPeople extends AppCompatActivity implements simpleMethod {
                 getStringFromInput(binding.setCurrentInstituteJoinningDate, "text"),
                 getStringFromInput(binding.setMobile, "text"),
                 getStringFromInput(binding.setEmail, "email"),
-                getIntegerFromInput(binding.setPayority, "Sort Number"));
+                getIntegerFromInput(binding.setPayority, "Sort Number"),
+                getStringFromInput(binding.setPassword, "password"), false);
+
 
         db.collection(collection).document(getStringFromInput(binding.setName, "text")).set(model, SetOptions.merge()).addOnSuccessListener(unused -> {
-                    dialog.dismiss();
-                    Toast.makeText(setPeople.this, "successfully submitted", Toast.LENGTH_SHORT).show();
-                    finish();
+
+                    db.collection("TeacherData").document(
+                            getStringFromInput(binding.setEmail, "email")).set(model, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            dialog.dismiss();
+                            Toast.makeText(setPeople.this, "successfully submitted", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            dialog.dismiss();
+                            Toast.makeText(setPeople.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+
                 }).
                 addOnFailureListener(e -> {
                     dialog.dismiss();

@@ -86,7 +86,27 @@ public class Signup_Student extends AppCompatActivity implements simpleMethod{
                 }
             }
         });
-        fillDocument();
+        if (!document.isEmpty()) {
+            db.collection(collection).document(document).get().addOnSuccessListener(documentSnapshot -> {
+                if (documentSnapshot.exists()) {
+                    imageUrl = documentSnapshot.getString("photo");
+                    setTextFromFireStore(binding.setName, "name", documentSnapshot);
+                    setTextFromFireStore(binding.setRoll, "roll", documentSnapshot);
+                    setTextFromFireStore(binding.setHomeDistrict, "homeDistrict", documentSnapshot);
+                    setTextFromFireStore(binding.setStudentMobileNumber, "studentMobileNumber", documentSnapshot);
+                    setTextFromFireStore(binding.setGordianName, "gordianName", documentSnapshot);
+                    setTextFromFireStore(binding.setGordianMobileNumber, "gordianMobileNumber", documentSnapshot);
+                    setTextFromFireStore(binding.setEmailAddress, "email_address", documentSnapshot);
+                    setTextFromFireStore(binding.setPassword, "password", documentSnapshot);
+                    Picasso.get().load(documentSnapshot.getString("photo")).placeholder(R.drawable.ic_baseline_account_circle_24).into(binding.setPhoto);
+
+
+                } else {
+                    Toast.makeText(Signup_Student.this, "document not found", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(e -> Toast.makeText(Signup_Student.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show());
+
+        }
 
 
     }
@@ -157,27 +177,7 @@ public class Signup_Student extends AppCompatActivity implements simpleMethod{
     }
 
     private void fillDocument() {
-        if (!document.isEmpty()) {
-            db.collection(collection).document(document).get().addOnSuccessListener(documentSnapshot -> {
-                if (documentSnapshot.exists()) {
-                    imageUrl = documentSnapshot.getString("photo");
-                    setTextFromFireStore(binding.setName, "name", documentSnapshot);
-                    setTextFromFireStore(binding.setRoll, "roll", documentSnapshot);
-                    setTextFromFireStore(binding.setHomeDistrict, "homeDistrict", documentSnapshot);
-                    setTextFromFireStore(binding.setStudentMobileNumber, "studentMobileNumber", documentSnapshot);
-                    setTextFromFireStore(binding.setGordianName, "gordianName", documentSnapshot);
-                    setTextFromFireStore(binding.setGordianMobileNumber, "gordianMobileNumber", documentSnapshot);
-                    setTextFromFireStore(binding.setEmailAddress, "email_address", documentSnapshot);
-                    setTextFromFireStore(binding.setPassword, "password", documentSnapshot);
-                    Picasso.get().load(documentSnapshot.getString("photo")).placeholder(R.drawable.ic_baseline_account_circle_24).into(binding.setPhoto);
 
-
-                } else {
-                    Toast.makeText(Signup_Student.this, "document not found", Toast.LENGTH_SHORT).show();
-                }
-            }).addOnFailureListener(e -> Toast.makeText(Signup_Student.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show());
-
-        }
     }
 
     public void setTextFromFireStore(EditText editText, String fieldName, DocumentSnapshot documentSnapshot) {

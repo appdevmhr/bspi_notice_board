@@ -181,6 +181,20 @@
                 android:textColor="#000000"
                 android:textColorHint="#00695C"
                 android:textSize="20sp" />
+            <EditText
+                android:id="@+id/setPassword"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Enter Password for Account "
+                android:inputType="textVisiblePassword"
+                android:padding="20dp"
+                android:textColor="#000000"
+                android:textColorHint="#00695C"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/setPayority"
