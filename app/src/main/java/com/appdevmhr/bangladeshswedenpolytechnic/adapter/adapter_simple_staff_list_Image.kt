@@ -34,15 +34,19 @@ open class adapter_simple_staff_list_Image(
         viewholder.Post.text = list[i].simple_staff_list_post
         Picasso.get().load(list[i].imagelink).placeholder(R.drawable.ic_baseline_account_circle_24)
             .into(viewholder.Photo)
-        viewholder.itemView.setOnLongClickListener {
-            setIntentForSetPeaple(
-                context,
-                setPeople::class.java,
-                collection,
-                model.simple_staff_list_Name
-            )
-            false
+
+        if(simpleMethod.ADMIN_ACCOUNT == true){
+            viewholder.itemView.setOnLongClickListener {
+                setIntentForSetPeaple(
+                    context,
+                    setPeople::class.java,
+                    collection,
+                    model.simple_staff_list_Name
+                )
+                false
+            }
         }
+
         viewholder.view_details.setOnClickListener {
             val intent = Intent(context, staff_list_in_details::class.java)
             intent.putExtra("name", model.simple_staff_list_Name)

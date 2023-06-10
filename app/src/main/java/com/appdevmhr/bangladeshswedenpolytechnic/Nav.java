@@ -1,8 +1,11 @@
 package com.appdevmhr.bangladeshswedenpolytechnic;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -11,6 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import com.appdevmhr.bangladeshswedenpolytechnic.databinding.ActivityNavBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Nav extends AppCompatActivity {
 
@@ -50,6 +54,29 @@ private ActivityNavBinding binding;
         getMenuInflater().inflate(R.menu.nav, menu);
         return true;
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(Nav.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.delete:
+                FirebaseAuth.getInstance().getCurrentUser().delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        finish();
+                    }
+                });
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {

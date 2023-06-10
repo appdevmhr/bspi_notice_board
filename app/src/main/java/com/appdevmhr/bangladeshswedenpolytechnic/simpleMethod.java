@@ -44,23 +44,27 @@ public interface simpleMethod {
         Intent intent = new Intent(thisActivity, sendActivity);
         thisActivity.startActivity(intent);
     }
+    boolean ADMIN_ACCOUNT = false;
    default   void setAdminWork(FloatingActionButton addStudentList) {
-        FirebaseAuth auth;
-        FirebaseFirestore database;
-        database = FirebaseFirestore.getInstance();
-        auth = FirebaseAuth.getInstance();
-        database.collection("TeacherData").document(auth.getCurrentUser().getEmail()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-
-                if (documentSnapshot.get("admin").toString().equals("true")){
-                    addStudentList.setVisibility(View.VISIBLE);
-                }else {
-                    addStudentList.setVisibility(View.GONE);
-                }
-
-            }
-        });
+//        FirebaseAuth auth;
+//        FirebaseFirestore database;
+//        database = FirebaseFirestore.getInstance();
+//        auth = FirebaseAuth.getInstance();
+        if (ADMIN_ACCOUNT == true){
+            addStudentList.setVisibility(View.VISIBLE);
+        }
+//        database.collection("TeacherData").document(auth.getCurrentUser().getEmail()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+//            @Override
+//            public void onSuccess(DocumentSnapshot documentSnapshot) {
+//
+//                if (documentSnapshot.get("admin").toString().equals("true")){
+//                    addStudentList.setVisibility(View.VISIBLE);
+//                }else {
+//                    addStudentList.setVisibility(View.GONE);
+//                }
+//
+//            }
+//        });
 
     }
 
