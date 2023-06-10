@@ -30,7 +30,7 @@ public class admission_info extends Fragment implements simpleMethod {
         // Inflate the layout for this fragment
         binding = FragmentAdmissionInfoBinding.inflate(inflater, container, false);
         setFirestoreRecyclerforProbidan(getContext(), "AdmissionInfo", binding.recyclerViewProbidan);
-
+setAdminWork(binding.addProbidan);
         binding.addProbidan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

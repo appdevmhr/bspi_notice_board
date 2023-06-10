@@ -18,6 +18,7 @@
         android:layout_marginBottom="24dp"
         android:clickable="true"
         app:backgroundTint="#000000"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

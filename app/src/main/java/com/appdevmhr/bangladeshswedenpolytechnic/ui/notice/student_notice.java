@@ -33,6 +33,7 @@ public class student_notice extends Fragment implements simpleMethod {
                 setIntentForSetProbidan(getContext(), uploadProbidan.class,"Student_Notice","");
             }
         });
+        setAdminWork(binding.addProbidan);
         return binding.getRoot();
     }
 }

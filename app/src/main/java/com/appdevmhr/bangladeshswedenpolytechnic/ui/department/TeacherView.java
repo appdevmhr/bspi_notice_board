@@ -25,6 +25,7 @@ public class TeacherView extends AppCompatActivity implements simpleMethod {
                 setIntentForSetPeaple(TeacherView.this, setPeople.class,collection,"");
             }
         });
+        setAdminWork(binding.floatingActionButton2);
 
     }
 }

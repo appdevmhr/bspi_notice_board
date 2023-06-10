@@ -24,6 +24,7 @@ public class general_notice extends Fragment implements simpleMethod {
         binding = FragmentGeneralNoticeBinding.inflate(inflater,container,false);
         setFirestoreRecyclerforProbidan(getContext(), "General_Notice", binding.recyclerViewProbidan);
 
+        setAdminWork(binding.addProbidan);
         binding.addProbidan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

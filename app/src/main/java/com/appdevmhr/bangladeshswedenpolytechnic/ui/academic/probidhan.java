@@ -34,6 +34,7 @@ public class probidhan extends Fragment implements simpleMethod {
         binding = FragmentProbidhanBinding.inflate(inflater, container, false);
         setFirestoreRecyclerforProbidan(getContext(), "Probidan", binding.recyclerViewProbidan);
 
+        setAdminWork(binding.addProbidan);
         binding.addProbidan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

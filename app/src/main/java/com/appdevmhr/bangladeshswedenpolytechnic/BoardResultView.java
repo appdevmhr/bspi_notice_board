@@ -23,5 +23,6 @@ ActivityBoardResultViewBinding binding;
                 setIntentForSetProbidan(BoardResultView.this, uploadProbidan.class,collection,"");
             }
         });
+        setAdminWork(binding.addProbidan);
     }
 }

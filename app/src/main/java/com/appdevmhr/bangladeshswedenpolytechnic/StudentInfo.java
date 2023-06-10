@@ -24,6 +24,7 @@ String department,collection,document;
                 setIntentForSetUploadSession(StudentInfo.this, uploadStudentSession.class,department+collection,document,department);
             }
         });
+        setAdminWork(binding.addStudentInfo);
         setFirestoreRecyclerforSessionUpload(StudentInfo.this, department+collection, binding.recyclerViewStudentInfo);
     }
 }

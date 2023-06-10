@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
@@ -23,6 +24,8 @@ import com.appdevmhr.bangladeshswedenpolytechnic.model.Signup_Student_Model;
 import com.appdevmhr.bangladeshswedenpolytechnic.model.uploadSessionModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
@@ -41,14 +44,32 @@ public interface simpleMethod {
         Intent intent = new Intent(thisActivity, sendActivity);
         thisActivity.startActivity(intent);
     }
+   default   void setAdminWork(FloatingActionButton addStudentList) {
+        FirebaseAuth auth;
+        FirebaseFirestore database;
+        database = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
+        database.collection("TeacherData").document(auth.getCurrentUser().getEmail()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
 
+                if (documentSnapshot.get("admin").toString().equals("true")){
+                    addStudentList.setVisibility(View.VISIBLE);
+                }else {
+                    addStudentList.setVisibility(View.GONE);
+                }
+
+            }
+        });
+
+    }
 
     default void setIntentForSetPeaple(Context thisActivity, Class sendActivity,String collection,String document) {
         Intent intent = new Intent(thisActivity, sendActivity);
         intent.putExtra("collection",collection);
         intent.putExtra("document",document);
         thisActivity.startActivity(intent);
-        ((Activity)thisActivity).finish();
+//        ((Activity)thisActivity).finish();
     }
     default void setIntentForSetProbidan(Context thisActivity, Class sendActivity,String collection,String document) {
         Intent intent = new Intent(thisActivity, sendActivity);

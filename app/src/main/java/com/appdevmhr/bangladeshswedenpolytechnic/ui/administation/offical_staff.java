@@ -29,12 +29,14 @@ public class offical_staff extends Fragment implements simpleMethod {
 
         binding = FragmentOfficalStaffBinding.inflate(inflater, container, false);
         setFirestoreRecycler(getContext(), "officeStaffInfo", binding.simpleStaffListRecyclerView);
+        setAdminWork(binding.floatingActionButton);
         binding.floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setIntentForSetPeaple(getContext(), setPeople.class,"officeStaffInfo","");
             }
         });
+
         return binding.getRoot();
     }
 

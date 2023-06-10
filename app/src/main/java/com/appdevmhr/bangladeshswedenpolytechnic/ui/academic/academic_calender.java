@@ -34,6 +34,7 @@ NoInternetSnackbar noInternetSnackbar;
 
         setFirestoreRecyclerforProbidan(getContext(), "Academic_Calender", binding.recyclerViewProbidan);
 
+        setAdminWork(binding.addProbidan);
         binding.addProbidan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

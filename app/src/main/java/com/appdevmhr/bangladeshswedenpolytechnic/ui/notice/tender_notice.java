@@ -27,6 +27,7 @@ public class tender_notice extends Fragment implements simpleMethod {
         binding = FragmentTenderNoticeBinding.inflate(inflater,container,false);
         setFirestoreRecyclerforProbidan(getContext(), "Tender_Notice", binding.recyclerViewProbidan);
 
+        setAdminWork(binding.addProbidan);
         binding.addProbidan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
