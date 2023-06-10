@@ -7,58 +7,32 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.appdevmhr.bangladeshswedenpolytechnic.R;
+import com.appdevmhr.bangladeshswedenpolytechnic.databinding.FragmentTenderNoticeBinding;
+import com.appdevmhr.bangladeshswedenpolytechnic.simpleMethod;
+import com.appdevmhr.bangladeshswedenpolytechnic.uploadProbidan;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link tender_notice#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class tender_notice extends Fragment {
+public class tender_notice extends Fragment implements simpleMethod {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    FragmentTenderNoticeBinding binding;
 
     public tender_notice() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment tender_notice.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static tender_notice newInstance(String param1, String param2) {
-        tender_notice fragment = new tender_notice();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tender_notice, container, false);
+        binding = FragmentTenderNoticeBinding.inflate(inflater,container,false);
+        setFirestoreRecyclerforProbidan(getContext(), "Tender_Notice", binding.recyclerViewProbidan);
+
+        binding.addProbidan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setIntentForSetProbidan(getContext(), uploadProbidan.class,"Tender_Notice","");
+            }
+        });
+        return binding.getRoot();
     }
 }

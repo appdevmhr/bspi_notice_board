@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Signup_Student">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#2196F3"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="clip_horizontal|center"
+            android:orientation="vertical"
+            android:weightSum="13">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/setPhoto"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:padding="5dp"
+                android:src="@drawable/ic_baseline_account_circle_24"
+                app:civ_border_color="#00695C"
+                app:civ_border_width="2dp" />
+
+
+            <EditText
+                android:id="@+id/setName"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Enter Student Name"
+                android:inputType="textPersonName|text"
+                android:padding="20dp"
+                android:textColor="#000000"
+                android:textColorHint="#00695C"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/setRoll"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Enter Student Roll"
+                android:inputType="numberDecimal"
+                android:padding="20dp"
+                android:textColor="#000000"
+                android:textColorHint="#00695C"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/setRegistration"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Enter Student Registration"
+                android:inputType="numberDecimal"
+                android:padding="20dp"
+                android:textColor="#000000"
+                android:textColorHint="#00695C"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/setHomeDistrict"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Enter Student Home District"
+                android:inputType="textPersonName|text"
+                android:padding="20dp"
+                android:textColor="#000000"
+                android:textColorHint="#00695C"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/setStudentMobileNumber"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Enter Student Mobile Number"
+                android:inputType="numberDecimal"
+                android:padding="20dp"
+                android:textColor="#000000"
+                android:textColorHint="#00695C"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/setGordianName"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Enter Student Gordian Name"
+                android:inputType="textAutoComplete|text"
+                android:padding="20dp"
+                android:textColor="#000000"
+                android:textColorHint="#00695C"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/setGordianMobileNumber"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint=" Enter Student Gordian Mobile Number"
+                android:inputType="numberDecimal"
+                android:padding="20dp"
+                android:textColor="#000000"
+                android:textColorHint="#00695C"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/setEmail_address"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Enter Student Email Address "
+                android:inputType="textEmailAddress"
+                android:padding="20dp"
+                android:textColor="#000000"
+                android:textColorHint="#00695C"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/setPassword"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Enter Password"
+                android:inputType="textVisiblePassword"
+                android:padding="20dp"
+                android:textColor="#000000"
+                android:textColorHint="#00695C"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:ems="10"
+                android:paddingBottom="20dp"
+                android:text="Done"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#F4F3F3"
+                android:textColorHint="#00695C"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</ScrollView>

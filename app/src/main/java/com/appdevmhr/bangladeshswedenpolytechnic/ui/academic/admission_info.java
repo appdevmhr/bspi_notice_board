@@ -9,11 +9,13 @@ import android.webkit.WebViewClient;
 
 import com.appdevmhr.bangladeshswedenpolytechnic.R;
 import com.appdevmhr.bangladeshswedenpolytechnic.databinding.FragmentAdmissionInfoBinding;
+import com.appdevmhr.bangladeshswedenpolytechnic.simpleMethod;
+import com.appdevmhr.bangladeshswedenpolytechnic.uploadProbidan;
 
 import org.imaginativeworld.oopsnointernet.ConnectionCallback;
 import org.imaginativeworld.oopsnointernet.NoInternetSnackbar;
 
-public class admission_info extends Fragment {
+public class admission_info extends Fragment implements simpleMethod {
 
     public admission_info() {
         // Required empty public constructor
@@ -27,10 +29,14 @@ public class admission_info extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentAdmissionInfoBinding.inflate(inflater, container, false);
-        binding.webview.loadUrl("http://btebadmission.gov.bd/website/");
-        binding.webview.setWebViewClient(new WebViewClient());
-        binding.webview.getSettings().setLoadsImagesAutomatically(true);
-        binding.webview.getSettings().setJavaScriptEnabled(true);
+        setFirestoreRecyclerforProbidan(getContext(), "AdmissionInfo", binding.recyclerViewProbidan);
+
+        binding.addProbidan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setIntentForSetProbidan(getContext(), uploadProbidan.class,"AdmissionInfo","");
+            }
+        });
         return binding.getRoot();
     }
     @Override

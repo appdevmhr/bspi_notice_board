@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
@@ -17,8 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.appdevmhr.bangladeshswedenpolytechnic.adapter.adapter_simple_staff_list_Image;
 import com.appdevmhr.bangladeshswedenpolytechnic.adapter.probidanAdapter;
+import com.appdevmhr.bangladeshswedenpolytechnic.adapter.sessionUploadAdapter;
 import com.appdevmhr.bangladeshswedenpolytechnic.model.Model_simple_staff_list;
 import com.appdevmhr.bangladeshswedenpolytechnic.model.ProbidanModel;
+import com.appdevmhr.bangladeshswedenpolytechnic.model.Signup_Student_Model;
+import com.appdevmhr.bangladeshswedenpolytechnic.model.uploadSessionModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -53,7 +55,25 @@ public interface simpleMethod {
         intent.putExtra("collection",collection);
         intent.putExtra("document",document);
         thisActivity.startActivity(intent);
-        ((Activity)thisActivity).finish();
+//        ((Activity)thisActivity).finish();
+    }
+    default void setIntentForSetStudentListView(Context thisActivity, Class sendActivity,String collection,String document,String Session,String Shift,String Department) {
+        Intent intent = new Intent(thisActivity, sendActivity);
+        intent.putExtra("collection",collection);
+        intent.putExtra("document",document);
+        intent.putExtra("Session",Session);
+        intent.putExtra("Shift",Shift);
+        intent.putExtra("Department",Department);
+        thisActivity.startActivity(intent);
+//        ((Activity)thisActivity).finish();
+    }
+    default void setIntentForSetUploadSession(Context thisActivity, Class sendActivity,String collection,String document,String depertment) {
+        Intent intent = new Intent(thisActivity, sendActivity);
+        intent.putExtra("collection",collection);
+        intent.putExtra("document",document);
+        intent.putExtra("department",depertment);
+        thisActivity.startActivity(intent);
+//        ((Activity)thisActivity).finish();
     }
     default void setFirestoreRecycler(Context context, String collection, RecyclerView recyclerView) {
         ProgressDialog dialog = new ProgressDialog(context);
@@ -94,6 +114,45 @@ public interface simpleMethod {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
     }
+    default void setFirestoreRecyclerforStudentListView(Context context, String collection, RecyclerView recyclerView, String document, String session, String shift, String department) {
+        ProgressDialog dialog = new ProgressDialog(context);
+        dialog.setTitle("Loading");
+        dialog.setMessage("Please Wait ......");
+        dialog.show();
+        dialog.setCancelable(false);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setPersistenceEnabled(true)
+                .setCacheSizeBytes(FirebaseFirestoreSettings.CACHE_SIZE_UNLIMITED)
+                .build();
+        db.setFirestoreSettings(settings);
+        ArrayList<Signup_Student_Model> list = new ArrayList<>();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+        StudentListAdapter adapter = new StudentListAdapter(context,collection, document,session,shift,department,list);
+        db.collection(collection).document(document).collection(document).orderBy("roll", Query.Direction.ASCENDING).
+                get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @SuppressLint("NotifyDataSetChanged")
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        dialog.dismiss();
+                        List<DocumentSnapshot> dataList = queryDocumentSnapshots.getDocuments();
+                        for (DocumentSnapshot d : dataList) {
+                            Signup_Student_Model obj = d.toObject(Signup_Student_Model.class);
+                            list.add(obj);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        dialog.dismiss();
+                        Toast.makeText(context, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(adapter);
+    }
     default void setFirestoreRecyclerforProbidan(Context context, String collection, RecyclerView recyclerView) {
         ProgressDialog dialog = new ProgressDialog(context);
         dialog.setTitle("Loading");
@@ -118,6 +177,45 @@ public interface simpleMethod {
                         List<DocumentSnapshot> dataList = queryDocumentSnapshots.getDocuments();
                         for (DocumentSnapshot d : dataList) {
                             ProbidanModel obj = d.toObject(ProbidanModel.class);
+                            list.add(obj);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        dialog.dismiss();
+                        Toast.makeText(context, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(adapter);
+    }
+ default void setFirestoreRecyclerforSessionUpload(Context context, String collection, RecyclerView recyclerView) {
+        ProgressDialog dialog = new ProgressDialog(context);
+        dialog.setTitle("Loading");
+        dialog.setMessage("Please Wait ......");
+        dialog.show();
+        dialog.setCancelable(false);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setPersistenceEnabled(true)
+                .setCacheSizeBytes(FirebaseFirestoreSettings.CACHE_SIZE_UNLIMITED)
+                .build();
+        db.setFirestoreSettings(settings);
+        ArrayList<uploadSessionModel> list = new ArrayList<>();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+        sessionUploadAdapter adapter = new sessionUploadAdapter(context,collection, list);
+        db.collection(collection).
+                get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @SuppressLint("NotifyDataSetChanged")
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        dialog.dismiss();
+                        List<DocumentSnapshot> dataList = queryDocumentSnapshots.getDocuments();
+                        for (DocumentSnapshot d : dataList) {
+                            uploadSessionModel obj = d.toObject(uploadSessionModel.class);
                             list.add(obj);
                         }
                         adapter.notifyDataSetChanged();

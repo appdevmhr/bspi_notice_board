@@ -3,10 +3,12 @@ package com.appdevmhr.bangladeshswedenpolytechnic.ui.administation;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.appdevmhr.bangladeshswedenpolytechnic.FullViewImage;
 import com.appdevmhr.bangladeshswedenpolytechnic.Nav;
 import com.appdevmhr.bangladeshswedenpolytechnic.R;
 import com.squareup.picasso.Picasso;
@@ -46,6 +48,15 @@ public class staff_list_in_details extends AppCompatActivity {
         binding.Email.setText(email);
         Picasso.get().load(Photolink).placeholder(R.drawable.ic_baseline_account_circle_24).into(binding.imageView6);
         Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
+
+        binding.imageView6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(staff_list_in_details.this, FullViewImage.class);
+                intent.putExtra("photo",Photolink);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

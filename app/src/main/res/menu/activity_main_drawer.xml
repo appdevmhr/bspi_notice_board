@@ -39,19 +39,24 @@
             <menu>
                 <item
                     android:id="@+id/principal"
-                    android:title="@string/principal" />
+                    android:title="@string/principal"
+                    android:visible="false"
+                     />
                 <item
                     android:id="@+id/vice_principal"
                     android:visible="false"
                     android:title="@string/vice_principal" />
                 <item
                     android:id="@+id/academic_council"
+                    android:visible="false"
                     android:title="@string/academic_council" />
                 <item
                     android:id="@+id/administrative_council"
+                    android:visible="false"
                     android:title="@string/administrative_council" />
                 <item
                     android:id="@+id/exam_control_section"
+                    android:visible="false"
                     android:title="@string/exam_control_section" />
                 <item
                     android:id="@+id/offical_staff"
@@ -65,18 +70,22 @@
             <menu>
                 <item
                     android:id="@+id/bspi_student_penel"
+                    android:visible="false"
                     android:title="@string/bspi_student_panel" />
                 <item
                     android:id="@+id/online_campus"
+                    android:visible="false"
                     android:title="@string/online_campus" />
                 <item
                     android:id="@+id/library"
+                    android:visible="false"
                     android:title="@string/library" />
                 <item
                     android:id="@+id/admission_info"
-                    android:title="@string/admission_info" />
+                    android:title="Admission Notice" />
                 <item
                     android:id="@+id/job_placement_cell"
+                    android:visible="false"
                     android:title="@string/job_placement_cell" />
                 <item
                     android:id="@+id/probidhan"
@@ -113,25 +122,32 @@
 
                 <item
                     android:id="@+id/principal_message"
+                    android:visible="false"
                     android:title="@string/message_from_principal" />
 
                 <item
                     android:id="@+id/vice_principal_message"
+                    android:visible="false"
                     android:title="@string/message_from_vice_principal" />
                 <item
                     android:id="@+id/history_background"
+                    android:visible="false"
                     android:title="@string/history_background" />
                 <item
                     android:id="@+id/mission_vission"
+                    android:visible="false"
                     android:title="@string/mission_vission" />
                 <item
                     android:id="@+id/citizen_charter"
+                    android:visible="false"
                     android:title="@string/citizen_charter" />
                 <item
                     android:id="@+id/hostel"
+                    android:visible="false"
                     android:title="@string/hostel" />
                 <item
                     android:id="@+id/organogram"
+                    android:visible="false"
                     android:title="@string/organogram" />
                 <item
                     android:id="@+id/bspiofficial"
@@ -142,9 +158,11 @@
         </item>
         <item
             android:id="@+id/album"
+            android:visible="false"
             android:title="@string/photo_gallery" />
         <item
             android:id="@+id/contact"
+            android:visible="false"
             android:title="@string/contact_us" />
 
     </group>

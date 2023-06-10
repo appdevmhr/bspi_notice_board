@@ -4,19 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2E7D32"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:weightSum="3"
-    tools:context=".ui.academic.admission_info">
+    tools:context=".StudentListView">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_Probidan"
+        android:id="@+id/add_StudentList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
         android:clickable="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp"
+        app:backgroundTint="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -26,7 +23,7 @@
         app:srcCompat="@drawable/ic_baseline_person_add_24" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewProbidan"
+        android:id="@+id/recyclerViewStudentList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"

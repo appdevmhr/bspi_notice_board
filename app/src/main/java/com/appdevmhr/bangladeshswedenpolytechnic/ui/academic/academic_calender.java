@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.appdevmhr.bangladeshswedenpolytechnic.R;
 import com.appdevmhr.bangladeshswedenpolytechnic.databinding.FragmentAcademicCalenderBinding;
 import com.appdevmhr.bangladeshswedenpolytechnic.simpleMethod;
+import com.appdevmhr.bangladeshswedenpolytechnic.uploadProbidan;
 import com.rajat.pdfviewer.PdfViewerActivity;
 
 import org.imaginativeworld.oopsnointernet.NoInternetSnackbar;
@@ -31,11 +32,12 @@ NoInternetSnackbar noInternetSnackbar;
         binding = FragmentAcademicCalenderBinding.inflate(inflater, container, false);
 
 
-        binding.academicCelender.setOnClickListener(new View.OnClickListener() {
+        setFirestoreRecyclerforProbidan(getContext(), "Academic_Calender", binding.recyclerViewProbidan);
+
+        binding.addProbidan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getContext().startActivity(PdfViewerActivity.Companion.launchPdfFromUrl(getContext(),"https://firebasestorage.googleapis.com/v0/b/bangladeshswedenpolytechnic.appspot.com/o/academicCelender%2FacademicCalender2022_23.pdf?alt=media&token=5109280e-2a4e-4eb5-a665-dbb519799831","Academic Calender","",false));
-
+                setIntentForSetProbidan(getContext(), uploadProbidan.class,"Academic_Calender","");
             }
         });
         return binding.getRoot();
