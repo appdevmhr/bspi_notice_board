@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.album">
+    tools:context=".FolderList">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_Student_Info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
         android:clickable="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp"
         android:visibility="gone"
         app:backgroundTint="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,5 +32,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,23 @@
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
 
+        <item android:id="@+id/pr"
+            app:showAsAction="never"
+            android:title="Principal"
+            >
+            <menu>
+                <item
+                    android:id="@+id/principal"
+                    android:title="@string/principal"
+                    android:visible="true"
+                    />
+                <item
+                    android:id="@+id/principal_message"
+                    android:visible="false"
+                    android:title="@string/message_from_principal" />
+            </menu>
+
+        </item>
         <item
             android:id="@+id/department"
             app:showAsAction="never"
@@ -14,7 +31,7 @@
                     android:title="@string/computer_department" />
                 <item
                     android:id="@+id/automobile_department"
-                    android:title="@string/automobile_department" />
+                    android:title="Automobile Department"/>
                 <item
                     android:id="@+id/civilwood_department"
                     android:title="@string/civil_wood_department" />
@@ -37,11 +54,7 @@
             app:showAsAction="never"
             android:title="@string/administration">
             <menu>
-                <item
-                    android:id="@+id/principal"
-                    android:title="@string/principal"
-                    android:visible="false"
-                     />
+
                 <item
                     android:id="@+id/vice_principal"
                     android:visible="false"
@@ -120,10 +133,7 @@
 
             <menu>
 
-                <item
-                    android:id="@+id/principal_message"
-                    android:visible="false"
-                    android:title="@string/message_from_principal" />
+
 
                 <item
                     android:id="@+id/vice_principal_message"
@@ -139,7 +149,7 @@
                     android:title="@string/mission_vission" />
                 <item
                     android:id="@+id/citizen_charter"
-                    android:visible="false"
+                    android:visible="true"
                     android:title="@string/citizen_charter" />
                 <item
                     android:id="@+id/hostel"
@@ -162,8 +172,8 @@
             android:title="@string/photo_gallery" />
         <item
             android:id="@+id/contact"
-            android:visible="false"
-            android:title="@string/contact_us" />
+            android:visible="true"
+            android:title="About Developer" />
 
     </group>
 </menu>

@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -15,17 +16,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.appdevmhr.bangladeshswedenpolytechnic.adapter.SendMessageAdapter;
 import com.appdevmhr.bangladeshswedenpolytechnic.adapter.adapter_simple_staff_list_Image;
 import com.appdevmhr.bangladeshswedenpolytechnic.adapter.probidanAdapter;
 import com.appdevmhr.bangladeshswedenpolytechnic.adapter.sessionUploadAdapter;
+import com.appdevmhr.bangladeshswedenpolytechnic.adapter.uploadListAdapter;
 import com.appdevmhr.bangladeshswedenpolytechnic.model.Model_simple_staff_list;
 import com.appdevmhr.bangladeshswedenpolytechnic.model.ProbidanModel;
+import com.appdevmhr.bangladeshswedenpolytechnic.model.SendMessageModel;
 import com.appdevmhr.bangladeshswedenpolytechnic.model.Signup_Student_Model;
+import com.appdevmhr.bangladeshswedenpolytechnic.model.uploadFolderListModel;
 import com.appdevmhr.bangladeshswedenpolytechnic.model.uploadSessionModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
@@ -44,13 +51,46 @@ public interface simpleMethod {
         Intent intent = new Intent(thisActivity, sendActivity);
         thisActivity.startActivity(intent);
     }
-    boolean ADMIN_ACCOUNT = false;
-   default   void setAdminWork(FloatingActionButton addStudentList) {
+
+    boolean ADMIN_ACCOUNT = true;
+
+    default void setAdminAccount() {
+        FirebaseAuth auth;
+        FirebaseFirestore database;
+        database = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
+
+        String email = auth.getCurrentUser().getEmail();
+        if (email != null) {
+            if (!email.isEmpty()) {
+                database.collection("TeacherData").document(auth.getCurrentUser().getEmail()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                        if (documentSnapshot != null) {
+                            if (documentSnapshot.get("admin").toString().equals("true")) {
+
+                            } else {
+
+                            }
+
+                        }
+
+                    }
+                });
+            }
+
+        }
+
+
+    }
+
+    default void setAdminWork(FloatingActionButton addStudentList) {
 //        FirebaseAuth auth;
 //        FirebaseFirestore database;
 //        database = FirebaseFirestore.getInstance();
 //        auth = FirebaseAuth.getInstance();
-        if (ADMIN_ACCOUNT == true){
+        if (ADMIN_ACCOUNT == true) {
             addStudentList.setVisibility(View.VISIBLE);
         }
 //        database.collection("TeacherData").document(auth.getCurrentUser().getEmail()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -68,38 +108,49 @@ public interface simpleMethod {
 
     }
 
-    default void setIntentForSetPeaple(Context thisActivity, Class sendActivity,String collection,String document) {
+    default void setIntentForSetPeaple(Context thisActivity, Class sendActivity, String collection, String document) {
         Intent intent = new Intent(thisActivity, sendActivity);
-        intent.putExtra("collection",collection);
-        intent.putExtra("document",document);
+        intent.putExtra("collection", collection);
+        intent.putExtra("document", document);
         thisActivity.startActivity(intent);
 //        ((Activity)thisActivity).finish();
     }
-    default void setIntentForSetProbidan(Context thisActivity, Class sendActivity,String collection,String document) {
+
+    default void setIntentForSetProbidan(Context thisActivity, Class sendActivity, String collection, String document) {
         Intent intent = new Intent(thisActivity, sendActivity);
-        intent.putExtra("collection",collection);
-        intent.putExtra("document",document);
+        intent.putExtra("collection", collection);
+        intent.putExtra("document", document);
         thisActivity.startActivity(intent);
 //        ((Activity)thisActivity).finish();
     }
-    default void setIntentForSetStudentListView(Context thisActivity, Class sendActivity,String collection,String document,String Session,String Shift,String Department) {
+
+    default void setIntentForSetStudentListView(Context thisActivity, Class sendActivity, String collection, String document, String Session, String Shift, String Department) {
         Intent intent = new Intent(thisActivity, sendActivity);
-        intent.putExtra("collection",collection);
-        intent.putExtra("document",document);
-        intent.putExtra("Session",Session);
-        intent.putExtra("Shift",Shift);
-        intent.putExtra("Department",Department);
+        intent.putExtra("collection", collection);
+        intent.putExtra("document", document);
+        intent.putExtra("Session", Session);
+        intent.putExtra("Shift", Shift);
+        intent.putExtra("Department", Department);
         thisActivity.startActivity(intent);
 //        ((Activity)thisActivity).finish();
     }
-    default void setIntentForSetUploadSession(Context thisActivity, Class sendActivity,String collection,String document,String depertment) {
+
+    default void setIntentForSetUploadSession(Context thisActivity, Class sendActivity, String collection, String document, String depertment) {
         Intent intent = new Intent(thisActivity, sendActivity);
-        intent.putExtra("collection",collection);
-        intent.putExtra("document",document);
-        intent.putExtra("department",depertment);
+        intent.putExtra("collection", collection);
+        intent.putExtra("document", document);
+        intent.putExtra("department", depertment);
         thisActivity.startActivity(intent);
 //        ((Activity)thisActivity).finish();
     }
+
+    default void setIntentForFolderupload(Context thisActivity, Class sendActivity, String collection) {
+        Intent intent = new Intent(thisActivity, sendActivity);
+        intent.putExtra("collection", collection);
+        thisActivity.startActivity(intent);
+//        ((Activity)thisActivity).finish();
+    }
+
     default void setFirestoreRecycler(Context context, String collection, RecyclerView recyclerView) {
         ProgressDialog dialog = new ProgressDialog(context);
         dialog.setTitle("Loading");
@@ -114,7 +165,7 @@ public interface simpleMethod {
         db.setFirestoreSettings(settings);
         ArrayList<Model_simple_staff_list> list = new ArrayList<>();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
-        adapter_simple_staff_list_Image adapter = new adapter_simple_staff_list_Image(context,collection, list);
+        adapter_simple_staff_list_Image adapter = new adapter_simple_staff_list_Image(context, collection, list);
         db.collection(collection).orderBy("piority", Query.Direction.ASCENDING).
                 get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @SuppressLint("NotifyDataSetChanged")
@@ -139,6 +190,7 @@ public interface simpleMethod {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
     }
+
     default void setFirestoreRecyclerforStudentListView(Context context, String collection, RecyclerView recyclerView, String document, String session, String shift, String department) {
         ProgressDialog dialog = new ProgressDialog(context);
         dialog.setTitle("Loading");
@@ -153,7 +205,7 @@ public interface simpleMethod {
         db.setFirestoreSettings(settings);
         ArrayList<Signup_Student_Model> list = new ArrayList<>();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
-        StudentListAdapter adapter = new StudentListAdapter(context,collection, document,session,shift,department,list);
+        StudentListAdapter adapter = new StudentListAdapter(context, collection, document, session, shift, department, list);
         db.collection(collection).document(document).collection(document).orderBy("roll", Query.Direction.ASCENDING).
                 get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @SuppressLint("NotifyDataSetChanged")
@@ -178,6 +230,7 @@ public interface simpleMethod {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
     }
+
     default void setFirestoreRecyclerforProbidan(Context context, String collection, RecyclerView recyclerView) {
         ProgressDialog dialog = new ProgressDialog(context);
         dialog.setTitle("Loading");
@@ -192,8 +245,8 @@ public interface simpleMethod {
         db.setFirestoreSettings(settings);
         ArrayList<ProbidanModel> list = new ArrayList<>();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
-        probidanAdapter adapter = new probidanAdapter(context,collection, list);
-        db.collection(collection).
+        probidanAdapter adapter = new probidanAdapter(context, collection, list);
+        db.collection(collection).orderBy("title", Query.Direction.ASCENDING).
                 get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @SuppressLint("NotifyDataSetChanged")
                     @Override
@@ -217,7 +270,49 @@ public interface simpleMethod {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
     }
- default void setFirestoreRecyclerforSessionUpload(Context context, String collection, RecyclerView recyclerView) {
+
+    default void setFirestoreRecyclerforFolderUpload(Context context, String collection, RecyclerView recyclerView, String type) {
+        ProgressDialog dialog = new ProgressDialog(context);
+        dialog.setTitle("Loading");
+        dialog.setMessage("Please Wait ......");
+        dialog.show();
+        dialog.setCancelable(false);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setPersistenceEnabled(true)
+                .setCacheSizeBytes(FirebaseFirestoreSettings.CACHE_SIZE_UNLIMITED)
+                .build();
+        db.setFirestoreSettings(settings);
+        ArrayList<uploadFolderListModel> list = new ArrayList<>();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+        uploadListAdapter adapter = new uploadListAdapter(context, collection, list, type);
+        db.collection(collection).orderBy("session", Query.Direction.ASCENDING).
+                get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @SuppressLint("NotifyDataSetChanged")
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        dialog.dismiss();
+                        List<DocumentSnapshot> dataList = queryDocumentSnapshots.getDocuments();
+                        for (DocumentSnapshot d : dataList) {
+                            uploadFolderListModel obj = d.toObject(uploadFolderListModel.class);
+                            list.add(obj);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        dialog.dismiss();
+                        Log.d("errr",e.getLocalizedMessage());
+                        Toast.makeText(context, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(adapter);
+    }
+
+    default void setFirestoreRecyclerforSessionUpload(Context context, String collection, RecyclerView recyclerView, String type) {
         ProgressDialog dialog = new ProgressDialog(context);
         dialog.setTitle("Loading");
         dialog.setMessage("Please Wait ......");
@@ -231,8 +326,8 @@ public interface simpleMethod {
         db.setFirestoreSettings(settings);
         ArrayList<uploadSessionModel> list = new ArrayList<>();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
-        sessionUploadAdapter adapter = new sessionUploadAdapter(context,collection, list);
-        db.collection(collection).
+        sessionUploadAdapter adapter = new sessionUploadAdapter(context, collection, list, type);
+        db.collection(collection).orderBy("session", Query.Direction.ASCENDING).
                 get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @SuppressLint("NotifyDataSetChanged")
                     @Override
@@ -250,6 +345,83 @@ public interface simpleMethod {
                     public void onFailure(@NonNull Exception e) {
                         dialog.dismiss();
                         Toast.makeText(context, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(adapter);
+    }
+
+    default void setFirestoreRecyclerforSendMess(Context context, String department, String session, String shift, RecyclerView recyclerView) {
+        ProgressDialog dialog = new ProgressDialog(context);
+        dialog.setTitle("Loading");
+        dialog.setMessage("Please Wait ......");
+        dialog.show();
+        dialog.setCancelable(false);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setPersistenceEnabled(true)
+                .setCacheSizeBytes(FirebaseFirestoreSettings.CACHE_SIZE_UNLIMITED)
+                .build();
+        db.setFirestoreSettings(settings);
+        ArrayList<SendMessageModel> list = new ArrayList<>();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+        SendMessageAdapter adapter = new SendMessageAdapter(context, list);
+        db.collection("Send_Message").document(department).collection(session+shift).
+                get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @SuppressLint("NotifyDataSetChanged")
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        dialog.dismiss();
+                        List<DocumentSnapshot> dataList = queryDocumentSnapshots.getDocuments();
+                        for (DocumentSnapshot d : dataList) {
+                            SendMessageModel obj = d.toObject(SendMessageModel.class);
+                            list.add(obj);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        dialog.dismiss();
+                        Toast.makeText(context, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(adapter);
+    }
+
+    default void setFirebaseDatabseRecyclerforSendMessage(Context context, String department, String session, String shift, RecyclerView recyclerView) {
+        ProgressDialog dialog = new ProgressDialog(context);
+        dialog.setTitle("Loading");
+        dialog.setMessage("Please Wait ......");
+        dialog.show();
+        dialog.setCancelable(false);
+        FirebaseFirestore fdb = FirebaseFirestore.getInstance();
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
+        ArrayList<SendMessageModel> list = new ArrayList<>();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+        SendMessageAdapter adapter = new SendMessageAdapter(context, list);
+        db.getReference().child(department).child(session).child(shift).
+                get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+                    @Override
+                    public void onSuccess(DataSnapshot dataSnapshot) {
+                        dialog.dismiss();
+                        list.clear();
+                        for (DataSnapshot snapshot1 : dataSnapshot.getChildren()) {
+                            SendMessageModel model1 = snapshot1.getValue(SendMessageModel.class);
+                            list.add(model1);
+                            Toast.makeText(context,model1.getDepartment(),Toast.LENGTH_SHORT).show();
+                        }
+                        recyclerView.smoothScrollToPosition(recyclerView.getAdapter().getItemCount());
+                        adapter.notifyDataSetChanged();;
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(context,e.getLocalizedMessage().toString(),Toast.LENGTH_SHORT).show();
+
                     }
                 });
 
@@ -293,15 +465,16 @@ public interface simpleMethod {
         }
         return temString;
     }
+
     default int getIntegerFromInput(EditText input, String Type) {
 
         String temString = input.getText().toString();
-        int number=999;
+        int number = 999;
         if (temString.isEmpty()) {
             input.setError("Required " + Type + " !!!");
             input.requestFocus();
         } else {
-           number = Integer.parseInt(temString);
+            number = Integer.parseInt(temString);
 
 
         }

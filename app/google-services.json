@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1016866215856",
+    "firebase_url": "https://bangladeshswedenpolytechnic-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "bangladeshswedenpolytechnic",
     "storage_bucket": "bangladeshswedenpolytechnic.appspot.com"
   },
@@ -39,6 +40,35 @@
         "mobilesdk_app_id": "1:1016866215856:android:dda4fa8f502a43537aa875",
         "android_client_info": {
           "package_name": "com.appdevmhr.bspi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016866215856-vn4s5jm39lm1hdm8ikdgvvh61osic98b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgld1lGc_zf-AYUrwlBuN7IX6HiXba0pc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016866215856-vn4s5jm39lm1hdm8ikdgvvh61osic98b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016866215856:android:726a83cbed3572237aa875",
+        "android_client_info": {
+          "package_name": "com.mahmudulhasan.bspi"
         }
       },
       "oauth_client": [

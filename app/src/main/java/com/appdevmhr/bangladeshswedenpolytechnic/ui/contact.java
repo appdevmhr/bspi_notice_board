@@ -7,58 +7,35 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.appdevmhr.bangladeshswedenpolytechnic.R;
+import com.appdevmhr.bangladeshswedenpolytechnic.databinding.FragmentContactBinding;
+import com.squareup.picasso.Picasso;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link contact#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class contact extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+   FragmentContactBinding binding;
     public contact() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment contact.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static contact newInstance(String param1, String param2) {
-        contact fragment = new contact();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contact, container, false);
+        binding = FragmentContactBinding.inflate(inflater,container,false);
+
+        binding.imageView6.setImageResource(R.drawable.developer);
+//        binding.name.setText("Mahmudul Hasan");
+//        binding.Designation.setText("Software Developer");
+//        binding.Section.setText("Developer");
+//        binding.HomeDistrict.setText("Noakhali");
+//        binding.Education.setText("Diploma In Computer Science And Technology");
+//        binding.GovtJobJoiningDate.setVisibility(View.GONE);
+//        binding.CurrentPositionJoinningDate.setVisibility(View.GONE);
+//        binding.CurrentInstituteJoinningDate.setVisibility(View.GONE);
+//        binding.Mobile.setText("+88" + "01537749454");
+//        binding.Email.setText("appdevmhr@gmail.com");
+//        Picasso.get().load("https://firebasestorage.googleapis.com/v0/b/bangladeshswedenpolytechnic.appspot.com/o/cwtTeachers%2FMohammad%20Abdul%20Matin%20Howlader%20?alt=media&token=9d0d5ee5-358f-4af8-9973-c5e2782fefe6").placeholder(R.drawable.ic_baseline_account_circle_24).into(binding.imageView6);
+
+        return binding.getRoot();
     }
 }

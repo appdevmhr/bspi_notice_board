@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.appdevmhr.bangladeshswedenpolytechnic.R
+import com.appdevmhr.bangladeshswedenpolytechnic.SendMessage
 import com.appdevmhr.bangladeshswedenpolytechnic.StudentListView
 import com.appdevmhr.bangladeshswedenpolytechnic.model.ProbidanModel
 import com.appdevmhr.bangladeshswedenpolytechnic.model.uploadSessionModel
@@ -15,7 +16,8 @@ import com.appdevmhr.bangladeshswedenpolytechnic.simpleMethod
 
 class sessionUploadAdapter(
     var context: Context,
-    var collection: String, var list: ArrayList<uploadSessionModel>
+    var collection: String, var list: ArrayList<uploadSessionModel>,
+    var type:String
 ) :
     RecyclerView.Adapter<sessionUploadAdapter.viewholder>(), simpleMethod {
 
@@ -46,14 +48,27 @@ class sessionUploadAdapter(
         val model = list[i]
         holder.Session.text = list[i].session
         holder.Shift.text = list[i].shift
-        holder.itemView.setOnClickListener {
-            val intent = Intent(context,StudentListView::class.java)
-            intent.putExtra("Session",list[i].session)
-            intent.putExtra("Shift",list[i].shift)
-            intent.putExtra("Department",list[i].department)
-            intent.putExtra("collection",list[i].department+"StudentInfo")
-            intent.putExtra("document",list[i].department+list[i].session+list[i].shift)
-            context.startActivity(intent)
+        if (type == "SessionList") {
+            holder.itemView.setOnClickListener {
+                val intent = Intent(context, SendMessage::class.java)
+                intent.putExtra("Session", list[i].session)
+                intent.putExtra("Shift", list[i].shift)
+                intent.putExtra("Department", list[i].department)
+                intent.putExtra("collection", list[i].department + "StudentInfo")
+                intent.putExtra("document", list[i].department + list[i].session + list[i].shift)
+                context.startActivity(intent)
+            }
+
+        } else {
+            holder.itemView.setOnClickListener {
+                val intent = Intent(context, StudentListView::class.java)
+                intent.putExtra("Session", list[i].session)
+                intent.putExtra("Shift", list[i].shift)
+                intent.putExtra("Department", list[i].department)
+                intent.putExtra("collection", list[i].department + "StudentInfo")
+                intent.putExtra("document", list[i].department + list[i].session + list[i].shift)
+                context.startActivity(intent)
+            }
         }
     }
 }

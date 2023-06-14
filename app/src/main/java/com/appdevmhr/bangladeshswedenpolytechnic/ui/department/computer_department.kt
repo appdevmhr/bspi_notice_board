@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.appdevmhr.bangladeshswedenpolytechnic.BoardResultView
+import com.appdevmhr.bangladeshswedenpolytechnic.SessionList
 import com.appdevmhr.bangladeshswedenpolytechnic.StudentInfo
 import com.appdevmhr.bangladeshswedenpolytechnic.databinding.FragmentComputerDepartmentBinding
 import com.appdevmhr.bangladeshswedenpolytechnic.simpleMethod
@@ -131,6 +132,16 @@ class computer_department : Fragment(), simpleMethod {
             )
 
         }
+        binding!!.sendMessage.visibility = View.GONE
+          binding!!.sm.setOnClickListener {
+            setIntentForSetUploadSession(
+                context,
+                SessionList::class.java, "StudentInfo", "", "computer"
+            )
+
+        }
+
+
         return binding!!.root
     }
 }

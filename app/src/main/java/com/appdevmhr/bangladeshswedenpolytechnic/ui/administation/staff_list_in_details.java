@@ -2,7 +2,9 @@ package com.appdevmhr.bangladeshswedenpolytechnic.ui.administation;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Toast;
 
@@ -49,6 +51,22 @@ public class staff_list_in_details extends AppCompatActivity {
         Picasso.get().load(Photolink).placeholder(R.drawable.ic_baseline_account_circle_24).into(binding.imageView6);
         Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
 
+        binding.Mobile.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                String url = "https://api.whatsapp.com/send?phone="+"+88"+mobile;
+                Intent whatsapp = new Intent(Intent.ACTION_VIEW);
+                whatsapp.setData(Uri.parse(url));
+                startActivity(whatsapp);
+                return false;
+            }
+        });
+        binding.Mobile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         binding.imageView6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

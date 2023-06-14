@@ -25,6 +25,6 @@ String department,collection,document;
             }
         });
         setAdminWork(binding.addStudentInfo);
-        setFirestoreRecyclerforSessionUpload(StudentInfo.this, department+collection, binding.recyclerViewStudentInfo);
+        setFirestoreRecyclerforSessionUpload(StudentInfo.this, department+collection, binding.recyclerViewStudentInfo,"StudentInfo");
     }
 }
